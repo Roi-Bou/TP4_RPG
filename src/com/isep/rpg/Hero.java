@@ -4,22 +4,24 @@ import java.util.List;
 
 public abstract class Hero {
     private int lifePoints;
+    private int currentHP;
     private int armor;
     private int weaponDamage;
     private List<Potion> potions;
     private List<Food> foods;
 
-    public Hero(int lifePoints, int armor, int weaponDamage) {
+    public Hero(int lifePoints, int currentHP,int armor, int weaponDamage) {
         this.lifePoints = lifePoints;
+        this.currentHP = currentHP;
         this.armor = armor;
         this.weaponDamage = weaponDamage;
         this.potions = new LinkedList<>();
         this.foods = new LinkedList<>();
     }
 
-    void attack(){};
-    void defend(){};
-    void useConsumable(Consumable consumable){};
+    void attack(){}
+    void defend(){}
+    void useConsumable(Consumable consumable){}
 
 
     public int getLifePoints(){
@@ -27,6 +29,12 @@ public abstract class Hero {
     }
     public void setLifePoints(int lifePoints) {
         this.lifePoints = lifePoints;
+    }
+
+    public int getCurrentHP(){
+        return currentHP;
+    }
+    public void setCurrentHP(int currentHP) {this.currentHP = currentHP;
     }
 
     public int getArmor(){
@@ -53,7 +61,5 @@ public abstract class Hero {
     public List<Food> getFoods() {
         return foods;
     }
-    public void setFoods(List<Food> foods) {
-        this.foods = foods;
-    }
+    public void setFoods(List<Food> foods) {this.foods = foods; }
 }
